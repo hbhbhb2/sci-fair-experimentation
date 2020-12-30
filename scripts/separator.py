@@ -11,7 +11,7 @@ def flatten(l: list) -> list:
     # https://stackoverflow.com/a/11264751
     return [e for sl in l for e in sl]
 
-def separate_img(img: Image.Image) -> list[Image.Image]:
+def separate_img(img: Image.Image) -> list: #list[Image.Image]
     # image_to_boxes returns lines of:
     # [guessed char] [x1] [y1 from bottom] [x2] [y2 from bottom] 0
     c = pytesseract.image_to_boxes(img)
