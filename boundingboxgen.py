@@ -1,11 +1,17 @@
+# DEBUG SCRIPT
+# shows what pytesseract views as the bounding boxes
+
 from PIL import Image, ImageDraw
 import pytesseract
 import re
+import sys
+from pathlib import Path
 
-def valid_chr(c):
+def valid_chr(c: str) -> bool:
     return bool(re.match(c, r"[a-zA-Z\-]"))
 
-img = Image.open('archive/test_v2/test/TEST_0009.jpg')
+path = Path('archive/' + sys.argv[0])
+img = Image.open(path) # python3 boundingboxgen.py [path]
 imgdraw = ImageDraw.Draw(img)
 
 # this fn returns lines of:
@@ -23,3 +29,4 @@ for line in l:
     ] # [(x1, y1), (x2, y2)]
     
     imgdraw.rectangle(coords, outline="red")
+img.show()
