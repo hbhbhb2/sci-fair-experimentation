@@ -1,6 +1,6 @@
 # this script creates training data that we will use for training the character recognition AI
 
-from scripts.separator import separate_img
+from separator import separate_img
 from pathlib import Path
 import os
 import csv
