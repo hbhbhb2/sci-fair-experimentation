@@ -34,10 +34,10 @@ six==1.15.0
 tensorboard==2.4.0
 tensorboard-plugin-wit==1.7.0
 tensorflow @ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.4.0-cp38-cp38-macosx_10_14_x86_64.whl
-tensorflow-datasets==4.1.0
 tensorflow-estimator==2.4.0
 tensorflow-metadata==0.26.0
 termcolor==1.1.0
+tfds-nightly==4.1.0.dev202101020106
 tqdm==4.55.0
 typing-extensions==3.7.4.3
 urllib3==1.26.2
