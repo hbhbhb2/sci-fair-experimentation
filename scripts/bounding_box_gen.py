@@ -10,7 +10,7 @@ from pathlib import Path
 def valid_chr(c: str) -> bool:
     return bool(re.match(c, r"[a-zA-Z\-]"))
 
-path = Path('archive/' + sys.argv[0])
+path = Path(sys.argv[0])
 img = Image.open(path) # python3 boundingboxgen.py [path]
 imgdraw = ImageDraw.Draw(img)
 
