@@ -11,6 +11,11 @@ def flatten(l: list) -> list:
     # https://stackoverflow.com/a/11264751
     return [e for sl in l for e in sl]
 
+def normalize(img: Image.Image) -> Image.Image:
+    IMG_SIZE = (32, 32)
+    # converts all chars into a 32x32 grayscale image
+    return img.resize(IMG_SIZE).convert('L')
+
 def separate_img(img: Image.Image) -> list: #list[Image.Image]
     # image_to_boxes returns lines of:
     # [guessed char] [x1] [y1 from bottom] [x2] [y2 from bottom] 0
@@ -41,5 +46,5 @@ def separate_img(img: Image.Image) -> list: #list[Image.Image]
         # (low x, low y, high x, high y)
         bounds = flatten(zip(*bounds))
         imgs.append(img.crop(bounds))
-    return imgs
+    return [normalize(img) for img in imgs] # normalize images, then return 
 

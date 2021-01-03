@@ -14,11 +14,10 @@ out = Path('out/train/')
 out_csv = Path('out/train.csv')
 
 MAX_IMGS_READ = 10000 # amt of images from train data that we're reading
-IMG_SIZE = (256, 256)
 
 def has_white_col(img: Image.Image) -> bool:
-    PXL_WIDTH = 4   # width of center col we're checking
-    WIDTH, HEIGHT = IMG_SIZE # img dims
+    PXL_WIDTH = 2   # width of center col we're checking
+    WIDTH, HEIGHT = img.size # img dims
     BOUNDING_PERCENT = 0.90 # brightness to be considered "white"
 
     # crop to center column
@@ -52,7 +51,7 @@ with open(train_csv) as f:
 
         path = os.path.join(train, pathname)
         with Image.open(path) as img:
-            return_imgs = [rimg.resize(IMG_SIZE) for rimg in separate_img(img)] # sep then resize imgs
+            return_imgs = separate_img(img) # sep images
 
             # if amt of chars found != length of identity string, dump input img b/c not sure how to handle
             if len(return_imgs) != len(identity_no_spaces): continue

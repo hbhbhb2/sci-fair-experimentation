@@ -4,7 +4,7 @@ from PIL import Image
 import pytesseract
 import sys
 
-img = Image.open(sys.argv[0])
+img = Image.open(sys.argv[1])
 retstr = pytesseract.image_to_string(img)
 
 print(retstr)
